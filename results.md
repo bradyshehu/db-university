@@ -73,3 +73,41 @@ FROM
 WHERE `phone` IS NULL
 
 LIMIT 0, 1000 **50 row(s)** returned 0.000 sec / 0.000 sec
+
+# GROUP BY
+
+## Prima query
+
+SELECT COUNT(`id`), YEAR(`enrolment_date`)
+FROM
+`students`
+GROUP BY YEAR(`enrolment_date`)
+
+LIMIT 0, 1000 4 row(s) returned 0.000 sec / 0.000 sec
+
+## Seconda query
+
+SELECT COUNT(`id`), `office_address`
+FROM
+`teachers`
+GROUP BY `office_address`
+
+LIMIT 0, 1000 29 row(s) returned 0.000 sec / 0.000 sec
+
+# Terza query
+
+SELECT `exam_id`, AVG(`vote`)
+FROM
+`exam_student`
+GROUP BY `exam_id`
+
+LIMIT 0, 1000 1000 row(s) returned 0.016 sec / 0.000 sec
+
+# Quarta query
+
+SELECT COUNT(\*) AS `num_of_departments` , `department_id`
+FROM
+`degrees`
+GROUP BY `department_id`
+
+LIMIT 0, 1000 12 row(s) returned 0.000 sec / 0.000 sec
